@@ -11,9 +11,16 @@ async function main() {
     await client.connect()
 
     const fund_result = await client.fundWallet()
-    const newamount = fund_result.balance * 2
     const test_wallet = fund_result.wallet
-    console.log(newamount)
+
+    // Get info from the ledger about the address we just funded
+    const response = await client.request({
+        "command": "account_info",
+        "account": test_wallet.address,
+        "ledger_index": "validated"
+    })
+    console.log(response)
+    console.log(fund_result)
 
     // Disconnect when done (If you omit this, Node.js won't end the process)
     client.disconnect()
