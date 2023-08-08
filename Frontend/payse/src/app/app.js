@@ -1,5 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Signup from "./pages/sign-up/Signup";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
 

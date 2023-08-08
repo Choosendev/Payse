@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const NavigateButton = styled.button`
   margin-top: 2.1rem;

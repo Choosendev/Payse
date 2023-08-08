@@ -1,4 +1,6 @@
 import React from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FormControl, FormLabel } from "./text.input.styles";
 
 const FormTextInput = ({
