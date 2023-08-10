@@ -1,29 +1,28 @@
-const xrpl = require("xrpl")
+const express = require("express")
+require('dotenv').config(); 
 
-// In browsers, use a <script> tag. In Node.js, uncomment the following line:
-// const xrpl = require('xrpl')
+const app = express()
+app.use(express.json())
 
-// Wrap code in an async function so we can use await
-async function main() {
 
-    // Define the network client
-    const client = new xrpl.Client("wss://s.altnet.rippletest.net:51233")
-    await client.connect()
+app.get("/", (req, res) => {
+    res.status(200).json({ "message": "Welcome to Payse" })
+})
 
-    const fund_result = await client.fundWallet()
-    const test_wallet = fund_result.wallet
+app.get("/signup", (req, res) => {
+    res.status(200).json({ "message": "Welcome to Payse" })
+})
 
-    // Get info from the ledger about the address we just funded
-    const response = await client.request({
-        "command": "account_info",
-        "account": test_wallet.address,
-        "ledger_index": "validated"
-    })
-    console.log(response)
-    console.log(fund_result)
+app.get("/login", (req, res) => {
+    res.status(200).json({ "message": "Welcome to Payse" })
+})
 
-    // Disconnect when done (If you omit this, Node.js won't end the process)
-    client.disconnect()
-}
+app.get("/history", (req, res) => {
+    res.status(200).json({ "message": "Welcome to Payse" })
+})
 
-main();
+app.get("/send", (req, res) => {
+    res.status(200).json({ "message": "Welcome to Payse" })
+})
+
+app.listen(3000, () => console.log("Server ready"))

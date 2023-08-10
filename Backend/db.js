@@ -1,11 +1,12 @@
 const mysql = require('mysql2/promise');
+require('dotenv').config();
 
 // AWS RDS database credentials
 const dbConfig = {
-  host: 'db-instance-endpoint',
-  user: 'db-username',
-  password: 'db-password',
-  database: 'database-name'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 };
 
 async function connect() {
@@ -54,6 +55,7 @@ async function updateRecord(connection, id, newData) {
   const connection = await connect();
 
   if (connection) {
+    console.log(connection);
     // Example data for CRUD operations
     const exampleData = { value1: 'new_value_1', value2: 'new_value_2' };
 
