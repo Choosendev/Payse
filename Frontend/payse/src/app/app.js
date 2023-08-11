@@ -9,7 +9,6 @@ function App() {
       <li>
        
         <Link  href="/sign-up" element={<Signup />} />
-        </Link>
       </li>
       </ul>
     );
